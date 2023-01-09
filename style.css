@@ -6,7 +6,8 @@
    box-sizing: border-box;
    color: rgb(228, 255, 228);
    text-align: center;
-   max-width: 2400px;
+   max-width: 2800px;
+   overflow-y: auto;
 }
 
 body {
@@ -49,7 +50,7 @@ h3 {
    border-radius: 5%;
    color: wheat;
    background-color: rgba(124, 210, 124, 0.7);
-   border: 1px solid whitesmoke;
+   border: 1px solid wheat;
    padding: .5rem .2rem;
    transition: background-color .3s;
 }
@@ -62,14 +63,14 @@ h3 {
 
 main {
    margin: 0 auto;
-   width: 98%;
-   background-color: #4b4946
+   max-width: 1850px;
+   background-color: rgba(124, 210, 124, 0.3);
 }
 
 aside {
    background-color: #4e5e76;
    margin: 0 auto;
-   width: 98%;
+   max-width: 525px;
 }
 
 body {
@@ -85,32 +86,28 @@ nav {
    width: 100%;
 }
 
+#navbar {
+   display: grid;
+   grid-template-columns: repeat(4, auto);
+   align-self: center;
+}
+
 nav .logo {
    align-self: center;
    margin-left: 10px;
-}
-
-nav ul li a {
-   text-transform: capitalize;
-}
-
-nav ul {
-   display: grid;
-   grid-template-columns: repeat(4, 100px);
 }
 
 .logo img {
    width: 80px;
 }
 
-#navbar {
-   grid-template-columns: repeat(4, auto);
-   align-self: center;
+nav ul li a {
+   text-transform: capitalize;
+   font-size: 1.8rem;
 }
 
 #navbar a:hover {
-   font-weight: bolder;
-   color: blue;
+   color: rgba(124, 210, 124);
    border-radius: 5px;
 }
 
@@ -122,12 +119,12 @@ nav ul {
 
    aside,
    main {
-      width: 98%;
+      max-width: 98%;
    }
 
    .hero {
       left: 0px;
-      width: 100%;
+      max-width: 98%;
    }
 }
 
@@ -144,21 +141,36 @@ text-align: center; */
 
 .hero {
    background-color: rgba(81, 110, 81, 0.449);
-
    padding: 1rem;
    width: 35%;
    text-align: center;
-
    position: absolute;
    left: 30%;
-   top: 25%;
-
+   top: 10%;
 }
 
 .btn-products {
+font-weight: bolder;
    position: absolute;
    left: 40%;
    top: 50%;
+}
+
+@media screen and (max-width: 1030px) {
+   .hero {
+      width: 45%;
+   }
+}
+
+@media screen and (max-width: 750px) {
+   .hero {
+      left:0;
+      top:30%;
+      width: 100%;
+   }
+   .btn-products {
+      top:56%;
+   }
 }
 
 /* ** MAIN **************************************** */
@@ -169,19 +181,28 @@ text-align: center; */
    display: grid;
    --grid-column-gap: 15px;
    --grid-rows: 1;
-   grid-auto-columns: calc((100% - 2 * var(--grid-column-gap))/ 3);
+   grid-auto-columns: calc((100% - 2 * var(--grid-column-gap))/ 2);
    grid-column-gap: var(--grid-column-gap);
    grid-auto-flow: column;
 
    overflow-x: auto;
-   scroll-snap-type: x mandatory;
-
 }
 
 .slider-item img {
    width: 100%;
 }
 
+@media screen and (min-width: 1200px) {
+   .slider-container {
+      grid-auto-columns: calc((100% - 3 * var(--grid-column-gap))/ 3);
+   }
+}
+
+@media screen and (min-width: 2000px) {
+   .slider-container {
+      grid-auto-columns: calc((100% - 3 * var(--grid-column-gap))/ 4);
+   }
+}
 
 /* ** PRODUCTS ******************************* */
 .products-cards {
@@ -214,7 +235,6 @@ text-align: center; */
 
 .card-body p,
 button {
-   color: black;
    margin: 15px;
 }
 
@@ -223,7 +243,7 @@ button {
 }
 
 
-@media screen and (min-width: 1210px) {
+@media screen and (min-width: 1370px) {
    .products-cards {
       grid-template-columns: repeat(2, auto);
    }
@@ -235,20 +255,23 @@ button {
    }
 }
 
-@media screen and (min-width: 2340px) {
+@media screen and (min-width: 2450px) {
    .products-cards {
       grid-template-columns: repeat(4, auto);
    }
 }
 
-@media screen and (max-width: 925px) {
+@media screen and (max-width: 1370px) {
    .products-cards {
-      grid-template-columns: repeat(1, auto);
+      grid-template-columns: 1fr;
+   }
+
+   .card{
+      width: 95%;
    }
 }
 
-
-/* --------------------- ASIDE */
+/* ** ASIDE *********************************** */
 
 aside {
    height: auto;
@@ -263,10 +286,15 @@ aside .imagen img {
    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.493);
 }
 
-/* -------------------- CONTACTO - MAIN*/
+@media screen and (min-width: 750px) {
+   aside .imagen img{
+      max-width: 99%;
+   }
+}
+
+/* ** CONTACTO - MAIN ************************* */
 
 .contact-title {
-   margin: 100px 0;
    padding: 20px 0 0 0;
    text-align: center;
 }
@@ -274,31 +302,28 @@ aside .imagen img {
 
 .contact {
    padding: 30px 0 20px 20px;
-   display: flex;
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   justify-content: center;
    align-items: center;
 }
 
-@media (max-width: 1040px) {
+@media screen and (max-width: 1200px) {
    .contact {
-      flex-direction: column;
+      grid-template-columns: 1fr;
    }
 
-   .input-group {
-      width: 75%;
+   .contact-left  {
+      margin: 0 auto; 
+      padding-bottom: 1rem;
    }
-}
-
-.contact-left {
-   width: 40%;
-   display: flex;
-
 }
 
 .contact-left img {
-   width: 350px;
+   width: 100%;
 }
 
-/* ----------------- formulario */
+/* ** formulario *************************** */
 
 form {
    max-width: 600px;
@@ -315,13 +340,13 @@ textarea {
    background-color: #7c7c7c;
 }
 
-@media (max-width: 1100px) {
-   form {
+@media screen and (min-width: 750px) {
+   .contact-right{
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+   }
+
+   form  {
+      max-width: 100%;
    }
 }
 
@@ -341,8 +366,6 @@ button:hover {
 }
 
 
-
-
 /* FOOTER------------------------------------  */
 
 .footer {
@@ -351,7 +374,7 @@ button:hover {
 
 .copyright {
    background-color: black;
-   display: flex;
+   display: grid;
    justify-content: space-around;
    align-items: center;
    margin: 1rem 0 0 0;
@@ -359,8 +382,11 @@ button:hover {
 }
 
 .icons {
-   display: flex;
-   justify-content: center;
+   margin-top: 20px;
+   display: grid;
+   grid-auto-flow: column;
+/* grid-template-columns: 1fr 1fr 1fr;
+justify-content: space-around; */
 }
 
 .icons i {
