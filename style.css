@@ -46,8 +46,6 @@ h3 {
    background-color: rgba(124, 210, 124, 0.7);
 }
 
-
-
 .btn {
    font-size: 2rem;
    padding: 1rem;
@@ -87,8 +85,9 @@ nav {
    display: grid;
    grid-template-columns: 200px auto;
    gap: 50px;
-   height: 5vh;
+   max-height: 5vh;
    width: 100%;
+   overflow-y: hidden;
 }
 
 #navbar {
@@ -114,6 +113,21 @@ nav ul li a {
 #navbar a:hover {
    color: rgba(124, 210, 124);
    border-radius: 5px;
+   /* background-color: rgba(51, 61, 48, .9); */
+}
+
+/* ------ hamburger sideNav menu */
+#sideNav {
+   display: none;
+}
+
+#navBtn {
+   display: none;
+   width: 40px;
+   position: relative;
+   margin: 20px auto;
+   z-index: 2;
+   cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
@@ -130,6 +144,37 @@ nav ul li a {
    .hero {
       left: 0px;
       max-width: 98%;
+   }
+}
+
+/* ------ hamburger sideNav */
+@media screen and (max-width: 760px) {
+
+   #navBtn {
+      display: block;
+   }
+
+   #navbar {
+      display: none;
+   }
+
+   #sideNav {
+      display: block;
+      list-style: none;
+      padding-top: 10px;
+      margin-top: 75px;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      z-index: 2;
+      transition: 0.5ms;
+      background-color: rgba(81, 110, 81, .4);
+      line-height: 3rem;
+   }
+
+   #sideNav ul li a:hover {
+      background-color: gray;
+      color: chartreuse;
    }
 }
 

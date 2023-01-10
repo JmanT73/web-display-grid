@@ -22,7 +22,30 @@
          <li><a href="#productos">Productos</a></li>
          <li><a href="#contacto">Contacto</a></li>
       </ul>
+      <ul id="sideNav">
+         <li><a href="#home">Home</a></li>
+         <li><a href="#destacados">Destacados</a></li>
+         <li><a href="#productos">Productos</a></li>
+         <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <span id="navBtn">
+         <i class="fas fa-bars fa-2x"></i>
+      </span>
    </nav>
+
+   <script>
+      const navBtn = document.getElementById("navBtn");
+      const sideNav = document.getElementById("sideNav");
+
+      sideNav.style.left = "-1000px";
+      navBtn.onclick = () => {
+         if (sideNav.style.left == "-1000px") {
+            sideNav.style.left = "0px";
+         } else {
+            sideNav.style.left = "-1000px";
+         }
+      }
+   </script>
 
    <header>
       <div class="hero">
