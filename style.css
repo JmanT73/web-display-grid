@@ -38,11 +38,15 @@ h1 {
 
 h2 {
    font-size: 2.2rem;
+   background-color:  rgba(81, 110, 81, 0.449);;
 }
 
 h3 {
    font-size: 1.8rem;
+   background-color: rgba(124, 210, 124, 0.7);
 }
+
+
 
 .btn {
    font-size: 2rem;
@@ -64,13 +68,14 @@ h3 {
 main {
    margin: 0 auto;
    max-width: 1850px;
-   background-color: rgba(124, 210, 124, 0.3);
+
 }
 
 aside {
-   background-color: #4e5e76;
+   background-color: rgba(81, 110, 81, 0.449);
    margin: 0 auto;
    max-width: 525px;
+
 }
 
 body {
@@ -98,7 +103,7 @@ nav .logo {
 }
 
 .logo img {
-   width: 80px;
+   width: 150px;
 }
 
 nav ul li a {
@@ -249,7 +254,7 @@ button {
    }
 }
 
-@media screen and (min-width: 1840px) {
+@media screen and (min-width: 1927px) {
    .products-cards {
       grid-template-columns: repeat(3, auto);
    }
@@ -294,6 +299,9 @@ aside .imagen img {
 
 /* ** CONTACTO - MAIN ************************* */
 
+#contacto {
+   background-color: rgba(81, 110, 81, 0.449);
+}
 .contact-title {
    padding: 20px 0 0 0;
    text-align: center;
